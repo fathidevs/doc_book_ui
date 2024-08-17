@@ -6,13 +6,13 @@ import 'cards.dart';
 class MyAppBar {
   static PreferredSizeWidget? transparent({
     required String title,
-    Color? backgroundColor,
+    Widget? leading,
   }) {
     return AppBar(
       elevation: 0.0,
       scrolledUnderElevation: 0.0,
       forceMaterialTransparency: true,
-      leading: const Icon(Icons.keyboard_backspace),
+      leading: leading,
       title: Text(
         title,
         style: const TextStyle(
@@ -20,9 +20,10 @@ class MyAppBar {
         ),
       ),
       actions: [
-        Cards.clickableIcon(
+        Cards.clickableIconAndNotif(
           icon: Icons.notifications_outlined,
           iconColor: MyTheme.light().colorScheme.primary,
+          onTap: () {},
         ),
         const SizedBox(width: 25.0 / 2),
       ],

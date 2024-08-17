@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class MyTheme {
   static ThemeData light() {
     return ThemeData.light(useMaterial3: true).copyWith(
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.blue,
+      colorScheme: const ColorScheme.light(
+        primary: Colors.blue,
         secondary: Colors.green,
       ),
       textTheme: ThemeData.dark().textTheme.apply(
@@ -15,13 +15,17 @@ class MyTheme {
 
   static ThemeData dark() {
     return ThemeData.dark(useMaterial3: true).copyWith(
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.blue,
+      colorScheme: const ColorScheme.dark(
+        primary: Colors.blue,
         secondary: Colors.green,
       ),
       textTheme: ThemeData.dark().textTheme.apply(
             fontFamily: 'Poppins',
           ),
     );
+  }
+
+  static ThemeData activeTheme() {
+    return const MaterialApp().themeMode == ThemeMode.dark ? dark() : light();
   }
 }
